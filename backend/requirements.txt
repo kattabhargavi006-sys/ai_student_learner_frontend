@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+python-multipart
+groq
+python-dotenv
+PyPDF2
+google-search-results
