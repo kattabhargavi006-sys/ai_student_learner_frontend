@@ -30,13 +30,14 @@ if st.button("Generate"):
         )
 
     response = requests.post(
-        "http://127.0.0.1:8000/learn",
-        data={
-            "question": question
-        },
-        files=files
-    )
+    "https://ai-student-learner-backend.onrender.com/learn",
+    data={"question": question},
+    files=files
+)
 
+st.write("Status Code:", response.status_code)
+
+if response.status_code == 200:
     result = response.json()
 
     st.subheader("Explanation")
@@ -44,3 +45,5 @@ if st.button("Generate"):
 
     st.subheader("Quiz")
     st.write(result["quiz"])
+else:
+    st.error(response.text)
